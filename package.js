@@ -14,6 +14,5 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('mouse0270:bootstrap-notify', 'client');
   api.use('tinytest', 'client');
-
   api.addFiles('test_meteor.js', 'client');
 });
