@@ -57,7 +57,9 @@
     var args = arguments;
         var str = arguments[0];
         return str.replace(/(\{\{\d\}\}|\{\d\})/g, function (str) {
-            if (str.substring(0, 2) === "{{") return str;
+            if (str.substring(0, 2) === "{{") {
+              return str;
+            }
             var num = parseInt(str.match(/\d/)[0]);
             return args[num + 1];
         });
@@ -132,7 +134,7 @@
       if (this.settings.content.icon) {
         this.setIcon();
       }
-      if (this.settings.content.url != "#") {
+      if (this.settings.content.url !== "#") {
         this.styleURL();
       }
       this.styleDismiss();
@@ -149,38 +151,40 @@
             commands = command;
           }
           for (var cmd in commands) {
-            switch (cmd) {
-              case "type":
-                this.$ele.removeClass('alert-' + self.settings.type);
-                this.$ele.find('[data-notify="progressbar"] > .progress-bar').removeClass('progress-bar-' + self.settings.type);
-                self.settings.type = commands[cmd];
-                this.$ele.addClass('alert-' + commands[cmd]).find('[data-notify="progressbar"] > .progress-bar').addClass('progress-bar-' + commands[cmd]);
-                break;
-              case "icon":
-                var $icon = this.$ele.find('[data-notify="icon"]');
-                if (self.settings.icon_type.toLowerCase() === 'class') {
-                  $icon.removeClass(self.settings.content.icon).addClass(commands[cmd]);
-                } else {
-                  if (!$icon.is('img')) {
-                    $icon.find('img');
+            if (commands.hasOwnProperty(cmd)) {
+              switch (cmd) {
+                case "type":
+                  this.$ele.removeClass('alert-' + self.settings.type);
+                  this.$ele.find('[data-notify="progressbar"] > .progress-bar').removeClass('progress-bar-' + self.settings.type);
+                  self.settings.type = commands[cmd];
+                  this.$ele.addClass('alert-' + commands[cmd]).find('[data-notify="progressbar"] > .progress-bar').addClass('progress-bar-' + commands[cmd]);
+                  break;
+                case "icon":
+                  var $icon = this.$ele.find('[data-notify="icon"]');
+                  if (self.settings.icon_type.toLowerCase() === 'class') {
+                    $icon.removeClass(self.settings.content.icon).addClass(commands[cmd]);
+                  } else {
+                    if (!$icon.is('img')) {
+                      $icon.find('img');
+                    }
+                    $icon.attr('src', commands[cmd]);
                   }
-                  $icon.attr('src', commands[cmd]);
-                }
-                self.settings.content.icon = commands[command];
-                break;
-              case "progress":
-                var newDelay = self.settings.delay - (self.settings.delay * (commands[cmd] / 100));
-                this.$ele.data('notify-delay', newDelay);
-                this.$ele.find('[data-notify="progressbar"] > div').attr('aria-valuenow', commands[cmd]).css('width', commands[cmd] + '%');
-                break;
-              case "url":
-                this.$ele.find('[data-notify="url"]').attr('href', commands[cmd]);
-                break;
-              case "target":
-                this.$ele.find('[data-notify="url"]').attr('target', commands[cmd]);
-                break;
-              default:
-                this.$ele.find('[data-notify="' + cmd + '"]').html(commands[cmd]);
+                  self.settings.content.icon = commands[command];
+                  break;
+                case "progress":
+                  var newDelay = self.settings.delay - (self.settings.delay * (commands[cmd] / 100));
+                  this.$ele.data('notify-delay', newDelay);
+                  this.$ele.find('[data-notify="progressbar"] > div').attr('aria-valuenow', commands[cmd]).css('width', commands[cmd] + '%');
+                  break;
+                case "url":
+                  this.$ele.find('[data-notify="url"]').attr('href', commands[cmd]);
+                  break;
+                case "target":
+                  this.$ele.find('[data-notify="url"]').attr('target', commands[cmd]);
+                  break;
+                default:
+                  this.$ele.find('[data-notify="' + cmd + '"]').html(commands[cmd]);
+              }
             }
           }
           var posX = this.$ele.outerHeight() + parseInt(self.settings.spacing) + parseInt(self.settings.offset.y);
@@ -306,7 +310,7 @@
 
       if ($.isFunction(self.settings.onClick)) {
           this.$ele.on('click', function (event) {
-              if (event.target != self.$ele.find('[data-notify="dismiss"]')[0]) {
+              if (event.target !== self.$ele.find('[data-notify="dismiss"]')[0]) {
                   self.settings.onClick.call(this, event);
               }
           });
@@ -323,7 +327,7 @@
         self.$ele.data('notify-delay', self.settings.delay);
         var timer = setInterval(function () {
           var delay = parseInt(self.$ele.data('notify-delay')) - self.settings.timer;
-          if ((self.$ele.data('data-hover') === 'false' && self.settings.mouse_over === "pause") || self.settings.mouse_over != "pause") {
+          if ((self.$ele.data('data-hover') === 'false' && self.settings.mouse_over === "pause") || self.settings.mouse_over !== "pause") {
             var percent = ((self.settings.delay - delay) / self.settings.delay) * 100;
             self.$ele.data('notify-delay', delay);
             self.$ele.find('[data-notify="progressbar"] > div').attr('aria-valuenow', percent).css('width', percent + '%');
