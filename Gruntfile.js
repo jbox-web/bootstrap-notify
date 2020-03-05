@@ -17,7 +17,8 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
-        jshintrc: 'jshintrc.json'
+        jshintrc: 'jshintrc.json',
+        reporterOutput: ''
       },
       default: {
         src: 'bootstrap-notify.js'
