@@ -10,9 +10,3 @@ Package.onUse(function (api) {
   api.use('jquery', 'client');
   api.addFiles('bootstrap-notify.js', 'client');
 });
-
-Package.onTest(function (api) {
-  api.use('mouse0270:bootstrap-notify', 'client');
-  api.use('tinytest', 'client');
-  api.addFiles('test_meteor.js', 'client');
-});

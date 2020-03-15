@@ -23,9 +23,6 @@ module.exports = function(grunt) {
       default: {
         src: 'bootstrap-notify.js'
       }
-    },
-    exec: {
-      'meteor-test': 'node_modules/.bin/spacejam test-packages ./'
     }
   });
 
@@ -33,6 +30,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-exec');
 
-  grunt.registerTask('test', ['jshint', 'exec:meteor-test']);
+  grunt.registerTask('test', ['jshint']);
   grunt.registerTask('default', ['uglify']);
 };
