@@ -4,7 +4,7 @@
   "description": "This is a simple plugin that turns standard Bootstrap alerts into \"Growl-like\" notifications.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mouse0270/bootstrap-notify.git"
+    "url": "https://github.com/jbox-web/bootstrap-notify.gitt"
   },
   "keywords": [
     "bootstrap",
@@ -19,9 +19,9 @@
   "author": "mouse0270 <rmcintosh@remabledesigns.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mouse0270/bootstrap-notify/issues"
+    "url": "https://github.com/jbox-web/bootstrap-notify/issues"
   },
-  "homepage": "http://bootstrap-notify.remabledesigns.com/",
+  "homepage": "https://github.com/jbox-web/bootstrap-notify",
   "main": "bootstrap-notify.js",
   "files": [
     "bootstrap-notify.js",
