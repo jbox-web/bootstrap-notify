@@ -2,9 +2,19 @@
   "name": "bootstrap-notify",
   "version": "3.1.8",
   "description": "This is a simple plugin that turns standard Bootstrap alerts into \"Growl-like\" notifications.",
+  "main": "dist/js/bootstrap-notify.js",
+  "files": [
+    "dist/js/*.js"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jbox-web/bootstrap-notify",
+  "author": "mouse0270 <rmcintosh@remabledesigns.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbox-web/bootstrap-notify.gitt"
+    "url": "https://github.com/jbox-web/bootstrap-notify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jbox-web/bootstrap-notify/issues"
   },
   "keywords": [
     "bootstrap",
@@ -16,25 +26,12 @@
     "message",
     "notice"
   ],
-  "author": "mouse0270 <rmcintosh@remabledesigns.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jbox-web/bootstrap-notify/issues"
-  },
-  "homepage": "https://github.com/jbox-web/bootstrap-notify",
-  "main": "bootstrap-notify.js",
-  "files": [
-    "bootstrap-notify.js",
-    "bootstrap-notify.min.js"
-  ],
   "dependencies": {},
   "devDependencies": {
-    "grunt": "^1.0.4",
-    "grunt-contrib-jshint": "^2.1.0",
-    "grunt-contrib-uglify": "^4.0.1",
-    "grunt-exec": "^3.0.0"
-  },
-  "scripts": {
-    "test": "grunt test"
+    "eslint-plugin-coffeescript": "^1.0.0",
+    "gulp": "^4.0.2",
+    "gulp-coffee": "^3.0.3",
+    "gulp-coffeelint": "^0.6.0",
+    "gulp-eslint": "^6.0.0"
   }
 }
