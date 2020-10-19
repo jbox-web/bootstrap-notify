@@ -26,7 +26,6 @@
     "message",
     "notice"
   ],
-  "dependencies": {},
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-plugin-coffee": "^0.1.13",
