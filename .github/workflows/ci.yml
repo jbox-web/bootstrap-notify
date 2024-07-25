@@ -38,8 +38,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install NodeJS dependencies
-        run: |
-          yarn install
+        run: make deps
 
       - name: Run Gulp
-        run: yarn run gulp
+        run: make build
